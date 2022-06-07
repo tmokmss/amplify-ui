@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { Node, Project, Symbol, Type, VariableDeclaration } from 'ts-morph';
+import { globbyStream } from 'globby';
 
 const project = new Project({
   tsConfigFilePath: path.resolve(
@@ -55,3 +56,19 @@ allTypeFiles.forEach((typeFile) => {
 });
 
 console.log(allTypeFilesData);
+
+const getPropsTable = async () => {
+  for await (const componentFilepath of globbyStream(
+    path.join(
+      __dirname,
+      '../../docs/src/pages/[platform]/components/*/index.page.mdx'
+    )
+  )) {
+    const regex =
+      /src\/pages\/\[platform\]\/components\/(\w*)\/index\.page\.mdx/;
+    const componentName = (componentFilepath as string).match(regex)[1];
+    console.log('componentName:', componentName);
+  }
+};
+
+getPropsTable();
