@@ -24,6 +24,10 @@ allTypeFiles.forEach((typeFile) => {
     .slice(0, typeFile.getBaseName().indexOf('.ts'));
   const typeFileData = new Map();
   const typeAliases = typeFile.getTypeAliases();
+  const propsTable = {
+    headers: ['Name', 'Type', 'Description'],
+    rows: [],
+  };
   if (typeAliases) {
     typeAliases.forEach((typeAlias) => {
       const typeAliasData = new Map();
@@ -35,6 +39,11 @@ allTypeFiles.forEach((typeFile) => {
       typeAliasData.set('type', typeAliasType);
       typeAliasData.set('description', typeAliasDescription);
       typeFileData.set(typeAliasName, typeAliasData);
+      propsTable.rows.push([
+        typeAliasName,
+        typeAliasType,
+        typeAliasDescription,
+      ]);
     });
   }
 
@@ -44,20 +53,21 @@ allTypeFiles.forEach((typeFile) => {
       const propertyJsDocs = typeProperty.getJsDocs()[0];
       const propertyDescription = propertyJsDocs?.getDescription() ?? '';
       const propertyName = typeProperty.getNameNode().getText();
-      const PropertyType = typeProperty.getTypeNode().getText();
+      const propertyType = typeProperty.getTypeNode().getText();
       typeInterfaceData.set('name', propertyName);
-      typeInterfaceData.set('type', PropertyType);
+      typeInterfaceData.set('type', propertyType);
       typeInterfaceData.set('description', propertyDescription);
       typeFileData.set(propertyName, typeInterfaceData);
+      propsTable.rows.push([propertyName, propertyType, propertyDescription]);
     });
   });
 
-  allTypeFilesData.set(typeFileName, typeFileData);
+  allTypeFilesData.set(typeFileName, { typeFileData, propsTable });
 });
 
 console.log(allTypeFilesData);
 
-const getPropsTable = async () => {
+const createAllPropsTables = async () => {
   for await (const componentFilepath of globbyStream(
     path.join(
       __dirname,
@@ -67,8 +77,10 @@ const getPropsTable = async () => {
     const regex =
       /src\/pages\/\[platform\]\/components\/(\w*)\/index\.page\.mdx/;
     const componentName = (componentFilepath as string).match(regex)[1];
+    const propsTable = allTypeFilesData.get(componentName)?.propsTable;
     console.log('componentName:', componentName);
+    console.log('🐮 propsTable:', propsTable);
   }
 };
 
-getPropsTable();
+createAllPropsTables();
