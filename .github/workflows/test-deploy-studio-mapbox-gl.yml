@@ -1,0 +1,38 @@
+# This workflow will run unit, e2e, and docs tests on commits to main.
+
+name: Test and Publish / studio mapbox gl
+
+concurrency:
+  group: e2e-${{ github.sha }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [fix-mapbox-gl-issue-studio]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: deployment
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup Node.js LTS
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+      - name: Install and build packages
+        run: yarn --frozen-lockfile && yarn build
+      - name: Bump ui and ui-react packages
+        run: cp .github/changeset-presets/bump-react.md .changeset
+      - name: Run changeset version to studio-mapbox-gl tag
+        run: yarn changeset version --snapshot studio-mapbox-gl && yarn angular build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to studio-mapbox-gl tag
+        run: yarn changeset publish --tag studio-mapbox-gl
