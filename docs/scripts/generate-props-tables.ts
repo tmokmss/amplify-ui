@@ -129,7 +129,9 @@ ${type}
 \`\`\`
 `}</TableCell>
       <TableCell className="props-table__tr-description">${
-        description ? description : '-'
+        description
+          ? description
+          : '<span aria-label="Missing description"> — </span>'
       }</TableCell>
     </TableRow>
 `
