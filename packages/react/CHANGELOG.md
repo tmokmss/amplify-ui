@@ -1,5 +1,38 @@
 # @aws-amplify/ui-react
 
+## 3.0.3
+
+### Patch Changes
+
+- [#2204](https://github.com/aws-amplify/amplify-ui/pull/2204) [`cd46fde0b`](https://github.com/aws-amplify/amplify-ui/commit/cd46fde0ba966acc1aaa4b054f16c7a2abfcd7f8) Thanks [@zchenwei](https://github.com/zchenwei)! - fix(type): adding enterKeyHint type missing from React 16
+
+- Updated dependencies [[`09d738a0f`](https://github.com/aws-amplify/amplify-ui/commit/09d738a0f9e1a67367b3bdb45bcb9644f20e2600)]:
+  - @aws-amplify/ui@3.12.1
+
+## 3.0.2
+
+### Patch Changes
+
+- [#2180](https://github.com/aws-amplify/amplify-ui/pull/2180) [`bb5aecdc3`](https://github.com/aws-amplify/amplify-ui/commit/bb5aecdc359f2e37b8660b5a4585da9b0041a795) Thanks [@joebuono](https://github.com/joebuono)! - docs(fix): Fixed typo in ComponentClassObject for RadioButton
+
+* [#2074](https://github.com/aws-amplify/amplify-ui/pull/2074) [`bc882121a`](https://github.com/aws-amplify/amplify-ui/commit/bc882121a8d0e005099e2827c3bde68d56647100) Thanks [@calebpollman](https://github.com/calebpollman)! - chore(ui-react): lint components/Authenticator directory
+
+* Updated dependencies [[`ffadbe883`](https://github.com/aws-amplify/amplify-ui/commit/ffadbe8837996fee24477ad5325559904c011150), [`897e55de9`](https://github.com/aws-amplify/amplify-ui/commit/897e55de962672d76cccdb5e13f8e4f180316a9b), [`bc882121a`](https://github.com/aws-amplify/amplify-ui/commit/bc882121a8d0e005099e2827c3bde68d56647100), [`710a6ec43`](https://github.com/aws-amplify/amplify-ui/commit/710a6ec4313f19077f723b75cf804d8508abca77)]:
+  - @aws-amplify/ui@3.12.0
+
+## 3.0.1
+
+### Patch Changes
+
+- [#2153](https://github.com/aws-amplify/amplify-ui/pull/2153) [`f2001fce5`](https://github.com/aws-amplify/amplify-ui/commit/f2001fce5c726e88f597884cfa7a1c58e0356ef6) Thanks [@joebuono](https://github.com/joebuono)! - docs(fix): Add MDN descriptions and links for BaseStyleProps
+
+* [#2151](https://github.com/aws-amplify/amplify-ui/pull/2151) [`c7b64fc60`](https://github.com/aws-amplify/amplify-ui/commit/c7b64fc60edefae5701fdf37fdb2278ce28d481e) Thanks [@joebuono](https://github.com/joebuono)! - docs(fix): Add missing prop descriptions for `as`, `isDisabled` and `style`
+
+- [#2132](https://github.com/aws-amplify/amplify-ui/pull/2132) [`3ace39ce0`](https://github.com/aws-amplify/amplify-ui/commit/3ace39ce07454a0ef53bc94491dac6183d89da43) Thanks [@joebuono](https://github.com/joebuono)! - Add missing prop descriptions
+
+- Updated dependencies [[`c568b96bc`](https://github.com/aws-amplify/amplify-ui/commit/c568b96bc579b6d1f2783695b1c2f2237d4678b9)]:
+  - @aws-amplify/ui@3.11.1
+
 ## 3.0.0
 
 ### Major Changes

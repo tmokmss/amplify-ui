@@ -1,5 +1,78 @@
 # @aws-amplify/ui
 
+## 3.12.1
+
+### Patch Changes
+
+- [#2200](https://github.com/aws-amplify/amplify-ui/pull/2200) [`09d738a0f`](https://github.com/aws-amplify/amplify-ui/commit/09d738a0f9e1a67367b3bdb45bcb9644f20e2600) Thanks [@flogy](https://github.com/flogy)! - Fixed some German authenticator translations
+
+## 3.12.0
+
+### Minor Changes
+
+- [#2113](https://github.com/aws-amplify/amplify-ui/pull/2113) [`ffadbe883`](https://github.com/aws-amplify/amplify-ui/commit/ffadbe8837996fee24477ad5325559904c011150) Thanks [@jacoblogan](https://github.com/jacoblogan)! - Add Design Tokens to phonenumberfield primitive, which required matching tokens in selectfield and textfield primitives
+
+  ```
+  --amplify-components-phonenumberfield-color
+  --amplify-components-phonenumberfield-border-color
+  --amplify-components-phonenumberfield-font-size
+  --amplify-components-phonenumberfield-focus-border-color
+  ```
+
+* [#2123](https://github.com/aws-amplify/amplify-ui/pull/2123) [`897e55de9`](https://github.com/aws-amplify/amplify-ui/commit/897e55de962672d76cccdb5e13f8e4f180316a9b) Thanks [@jacoblogan](https://github.com/jacoblogan)! - add design tokens and theme section to stepperfield primitive
+
+  ```
+  --amplify-components-stepperfield-border-color
+  --amplify-components-stepperfield-input-color
+  --amplify-components-stepperfield-input-font-size
+  --amplify-components-stepperfield-button-color
+  --amplify-components-stepperfield-button-background-color
+  --amplify-components-stepperfield-button-active-color
+  --amplify-components-stepperfield-button-active-background-color
+  --amplify-components-stepperfield-button-focus-color
+  --amplify-components-stepperfield-button-focus-background-color
+  --amplify-components-stepperfield-button-disabled-color
+  --amplify-components-stepperfield-button-disabled-background-color
+  --amplify-components-stepperfield-button-hover-color
+  --amplify-components-stepperfield-button-hover-background-color
+  ```
+
+- [#2114](https://github.com/aws-amplify/amplify-ui/pull/2114) [`710a6ec43`](https://github.com/aws-amplify/amplify-ui/commit/710a6ec4313f19077f723b75cf804d8508abca77) Thanks [@jacoblogan](https://github.com/jacoblogan)! - add design tokens to radio group
+
+  ```
+  --amplify-components-radio-label-color
+  --amplify-components-radio-label-disabled-color
+  --amplify-components-radiogroup-button-border-width
+  --amplify-components-radiogroup-button-border-color
+  --amplify-components-radiogroup-button-background-color
+  --amplify-components-radiogroup-button-checked-color
+  --amplify-components-radiogroup-button-label-color
+  ```
+
+### Patch Changes
+
+- [#2074](https://github.com/aws-amplify/amplify-ui/pull/2074) [`bc882121a`](https://github.com/aws-amplify/amplify-ui/commit/bc882121a8d0e005099e2827c3bde68d56647100) Thanks [@calebpollman](https://github.com/calebpollman)! - chore(ui-react): lint components/Authenticator directory
+
+## 3.11.1
+
+### Patch Changes
+
+- [#2133](https://github.com/aws-amplify/amplify-ui/pull/2133) [`c568b96bc`](https://github.com/aws-amplify/amplify-ui/commit/c568b96bc579b6d1f2783695b1c2f2237d4678b9) Thanks [@dbanksdesign](https://github.com/dbanksdesign)! - fix(ui): Fixes max call stack issue on `createTheme` when passing a theme object with non-design-token nodes.
+
+  ```javascript
+  const theme = createTheme({
+    name: 'my-theme',
+    tokens: {
+      colors: {
+        background: {
+          // this should be primary: { value: '#f90' }
+          primary: '#f90',
+        },
+      },
+    },
+  });
+  ```
+
 ## 3.11.0
 
 ### Minor Changes
